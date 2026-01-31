@@ -1,51 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Bhumika Verma Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
   <style>
+    /* Full-page background image */
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Poppins', sans-serif;
+      background-image: url('background.png'); /* your background */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       height: 100vh;
+      color: white; /* white text on image */
+    }
+
+    /* Navbar */
+    nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between; /* left: name, right: buttons */
       align-items: center;
-      color: white;
-      text-align: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.3); /* semi-transparent optional */
     }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .nav-buttons a {
-      display: inline-block;
-      background: white;
-      color: #2575fc;
-      padding: 15px 30px;
-      margin: 10px;
-      border-radius: 8px;
+
+    /* Name on top-left */
+    .brand {
+      font-size: 24px;
       font-weight: bold;
       text-decoration: none;
-      transition: transform 0.2s, background 0.2s;
+      color: white;
     }
+
+    /* Buttons on top-right */
+    .nav-buttons a {
+      text-decoration: none;
+      color: white;
+      margin-left: 25px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+
     .nav-buttons a:hover {
-      transform: scale(1.05);
-      background: #f0f0f0;
+      color: #ffd700; /* gold hover */
+    }
+
+    /* Centered content (optional) */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px); /* full height minus navbar */
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    /* Optional responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+      .nav-buttons a {
+        font-size: 14px;
+        margin-left: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div>
-    <h1>Welcome to My Portfolio</h1>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html" class="brand">Bhumika Verma</a>
     <div class="nav-buttons">
-      <a href="about.html">About Me</a>
+      <a href="about.html">About</a>
       <a href="resume.html">Resume</a>
       <a href="projects.html">Projects</a>
     </div>
+  </nav>
+
+  <!-- Optional hero section in center -->
+  <div class="hero">
+    <h1>Welcome!</h1>
+    <p>Click the buttons above to explore my portfolio</p>
   </div>
 
 </body>
