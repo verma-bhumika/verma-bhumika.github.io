@@ -58,13 +58,9 @@
       color: black;
     }
 
-    .content h1, .content h2 {
-      margin-top: 0;
-    }
-
     /* Accordion styles */
     .accordion {
-      background-color: #FCA2F3; /* updated pink color */
+      background-color: #FCA2F3; /* main section buttons: pink */
       cursor: pointer;
       padding: 15px 20px;
       margin-bottom: 10px;
@@ -74,16 +70,28 @@
       font-size: 18px;
       transition: background-color 0.2s ease;
       border-radius: 8px;
-      display: block; /* stack vertically */
-      width: 100%;   /* full width */
+      display: block; /* stacked vertically */
+      width: 100%;
     }
 
     .accordion:hover {
-      background-color: #F88DE0; /* slightly darker on hover */
+      background-color: #F88DE0;
     }
 
     .accordion.active {
       background-color: #F88DE0;
+    }
+
+    /* Nested accordion buttons (subsections) */
+    .nested-accordion {
+      font-size: 16px;
+      padding-left: 15px;
+      margin-top: 5px;
+      background-color: #FCFBA2; /* soft yellow */
+    }
+
+    .nested-accordion:hover {
+      background-color: #F7F480; /* slightly darker yellow on hover */
     }
 
     .panel {
@@ -95,13 +103,6 @@
 
     .panel p, .panel li {
       margin: 8px 0;
-    }
-
-    /* Nested accordion indentation */
-    .nested-accordion {
-      font-size: 16px;
-      padding-left: 15px;
-      margin-top: 5px;
     }
 
     .nested-panel {
@@ -131,7 +132,6 @@
 
   <!-- Resume content -->
   <div class="content">
-    <h1>Resume</h1>
 
     <!-- Education Accordion -->
     <button class="accordion">Education</button>
@@ -146,7 +146,6 @@
         <ul>
           <li>Dean’s List 2024</li>
           <li>Scholarship for Academic Excellence</li>
-          <!-- Add more awards here -->
         </ul>
       </div>
 
@@ -159,7 +158,6 @@
           <li>Signals and Systems</li>
           <li>Control Systems</li>
           <li>Machine Learning for Engineers</li>
-          <!-- Add more courses here -->
         </ul>
       </div>
     </div>
