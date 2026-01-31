@@ -6,12 +6,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
   <style>
-    /* Full-page background same as landing page */
+    /* Full-page background */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-image: url('background.png'); /* same background */
+      background-image: url('background.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -19,7 +19,7 @@
       color: black;
     }
 
-    /* Navbar: same as landing page */
+    /* Navbar */
     nav {
       display: flex;
       justify-content: space-between;
@@ -48,18 +48,62 @@
       color: #ffd700;
     }
 
-    /* Main content area */
+    /* Main content */
     .content {
       max-width: 900px;
       margin: 40px auto;
-      background: white;       /* white boxes */
+      background: white;
       padding: 30px;
       border-radius: 10px;
-      color: black;            /* black text inside boxes */
+      color: black;
     }
 
     .content h1, .content h2 {
       margin-top: 0;
+    }
+
+    /* Accordion styles */
+    .accordion {
+      background-color: #f9f9f9;
+      cursor: pointer;
+      padding: 15px 20px;
+      margin-bottom: 10px;
+      border: none;
+      outline: none;
+      text-align: left;
+      font-size: 18px;
+      transition: background-color 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .accordion:hover {
+      background-color: #e0e0e0;
+    }
+
+    .accordion.active {
+      background-color: #e0e0e0;
+    }
+
+    .panel {
+      padding: 0 20px 15px 20px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .panel p, .panel li {
+      margin: 8px 0;
+    }
+
+    /* Nested accordion indentation */
+    .nested-accordion {
+      font-size: 16px;
+      padding-left: 15px;
+    }
+
+    .nested-panel {
+      padding-left: 20px;
+      background-color: #fefefe;
     }
 
     /* Responsive adjustments */
@@ -82,28 +126,86 @@
     </div>
   </nav>
 
-  <!-- Resume content inside white boxes -->
+  <!-- Resume content -->
   <div class="content">
-    <h1>Education</h1>
+    <h1>Resume</h1>
 
-    <section>
+    <!-- Education Accordion -->
+    <button class="accordion">Education</button>
+    <div class="panel">
       <h2>University of Toronto</h2>
-      <p>Bachelors of Applied Science with PEY Co-op, <strong>Engineering Science - Electrical and Computer Engineering</strong>
-      Fall 2023 - Spring 2028</p>
-      <p>Insert description about coursework, achievements, or projects here.</p>
-    </section>
+      <p>Bachelors of Applied Science with PEY Co-op, <strong>Engineering Science - Electrical and Computer Engineering</strong></p>
+      <p>Fall 2023 - Spring 2028</p>
+
+      <!-- Nested accordion for courses -->
+      <button class="accordion nested-accordion">Courses</button>
+      <div class="panel nested-panel">
+        <ul>
+          <li>Introduction to Electrical Engineering</li>
+          <li>Digital Systems Design</li>
+          <li>Signals and Systems</li>
+          <li>Control Systems</li>
+          <li>Machine Learning for Engineers</li>
+          <!-- Add more courses here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience Accordion -->
+    <button class="accordion">Experience</button>
+    <div class="panel">
+      <h2>Digital Design Engineering Intern – AMD</h2>
+      <p>May 2026 - August 2027 (16 Months)</p>
+      <p>Insert description about your responsibilities, technologies used, and accomplishments here.</p>
+    </div>
+
+    <!-- Skills Accordion -->
+    <button class="accordion">Skills</button>
+    <div class="panel">
+      <!-- Programming Languages -->
+      <button class="accordion nested-accordion">Programming Languages</button>
+      <div class="panel nested-panel">
+        <ul>
+          <li>Python</li>
+          <li>C / C++</li>
+          <li>Verilog / VHDL</li>
+        </ul>
+      </div>
+
+      <!-- Tools & Software -->
+      <button class="accordion nested-accordion">Tools & Software</button>
+      <div class="panel nested-panel">
+        <ul>
+          <li>Git / GitHub</li>
+          <li>MATLAB</li>
+          <li>Simulink</li>
+        </ul>
+      </div>
+
+      <!-- Miscellaneous -->
+      <button class="accordion nested-accordion">Miscellaneous</button>
+      <div class="panel nested-panel">
+        <ul>
+          <li>Team Collaboration</li>
+          <li>Public Speaking</li>
+          <li>Project Management</li>
+        </ul>
+      </div>
+    </div>
 
   </div>
-  <div class="content">
-    <h1>Experience</h1>
-    
-    <section>
-      <h2>Digital Design Engineering Intern</h2>
-      <p><strong>AMD</strong>
-      May 2026 - August 2027 (16 Months)</p>
-      <p>Insert description about your responsibilities, technologies used, and accomplishments here.</p>
-    </section>
-  </div>
+
+  <script>
+    // Main accordion functionality
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(acc => {
+      acc.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = (panel.style.display === "block") ? "none" : "block";
+      });
+    });
+  </script>
 
 </body>
 </html>
